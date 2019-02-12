@@ -1,27 +1,51 @@
+class Form {
+	constructor(couleur, epaisseur){
+		this.couleur = couleur;
+		this.epaisseur = epaisseur;
+	}
+}
 
-Rectangle.prototype.paint = function(ctx) {
-   ctx.fillStyle = '#0040FF';
-   ctx.rect(this.getInitX(), this.getInitY(), this.getFinalX(), this.getFinalY());
-   ctx.stroke();
-};
+class Rectangle extends Form{
+	constructor(couleur, epaisseur,LeftX ,LeftY ,l,h) {
+		this.couleur = couleur;
+		this.epaisseur = epaisseur;
+		this.LeftX = LeftX;
+		this.LeftY = LeftY
+		this.l = l;
+		this.h = h;
+	}
+	
+}
 
-Line.prototype.paint = function(ctx) {
-   ctx.fillStyle = '#DF0101';
-   ctx.beginPath();
-   ctx.moveTo(this.getInitX(), this.getInitY());
-   ctx.lineTo(this.getFinalX(), this.getFinalY());
-   ctx.stroke();
+class Drawing{
+	constructor(forms){
+		this.forms = forms;
+	}
+	getForms() {
+		return this.forms;
+	}
+}
 
-};
-
-
-Drawing.prototype.paint = function(ctx) {
-   console.log(this.getForms());
-   ctx.fillStyle = '#F0F0F0'; // set canvas' background color
-   ctx.fillRect(0, 0, canvas.width, canvas.height);
-   this.getForms().forEach(function(eltDuTableau) {
-       // now fill the canvas
-       eltDuTableau.paint(ctx);
-   });
-};
-
+class Line extends Form{
+	constructor(couleur, epaisseur,InitX,InitY,FinalX,FinalY) {
+		this.couleur = couleur;
+		this.epaisseur = epaisseur;
+		this.InitX = InitX;
+		this.InitY = InitY;
+		this.FinalX = FinalX;
+		this.FinalY = FinalY;
+		
+	}
+	getFinalX(){
+		return this.FinalX;
+	}
+	getFinalY(){
+		return this.FinalY;
+	}
+	getInitX(){
+		return this.InitX;
+	}
+	getInitY(){
+		return this.InitX;
+	}
+}
