@@ -13,16 +13,22 @@ function DnD(canvas, interactor) {
 		this.p = getMousePosition(canvas,evt);
 		this.xInit = this.p.x;
 		this.yInit = this.p.y;
+		console.log(p.x);
+		console.log(p.y);
 	}.bind(this);
 	
 	this.Deplacement = function(evt){
 		this.p = getMousePosition(canvas,evt);
+		console.log(p.x);
+		console.log(p.y);
 	}.bind(this);
 	
 	this.Relachement = function(evt){
 		this.p = getMousePosition(canvas,evt);
 		this.xFin = this.p.x;
 		this.yFin = this.p.y;
+		console.log(p.x);
+		console.log(p.y);
 	}.bind(this);
 	
 	canvas.addEventListener('Drag', this.Pression);
