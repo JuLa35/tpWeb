@@ -1,13 +1,12 @@
 
 Rectangle.prototype.paint = function(ctx) {
-//TODO Manager color
+   ctx.fillStyle = '#0040FF';
    ctx.rect(this.getInitX(), this.getInitY(), this.getFinalX(), this.getFinalY());
    ctx.stroke();
 };
 
 Line.prototype.paint = function(ctx) {
-//TODO Manager color
-
+   ctx.fillStyle = '#DF0101';
    ctx.beginPath();
    ctx.moveTo(this.getInitX(), this.getInitY());
    ctx.lineTo(this.getFinalX(), this.getFinalY());
