@@ -7,33 +7,38 @@ function DnD(canvas, interactor) {
 	var xFin = 0;
 	var yFin = 0;
 	
-	var p = x:0,y:0;
+	var isPressed = false
+	
 
 	this.Pression = function(evt){
-		this.p = getMousePosition(canvas,evt);
-		this.xInit = this.p.x;
-		this.yInit = this.p.y;
+		isPressed = true
+		var p = getMousePosition(canvas,evt);
+		this.xInit = p.x;
+		this.yInit = p.y;
 		console.log(p.x);
 		console.log(p.y);
 	}.bind(this);
 	
 	this.Deplacement = function(evt){
-		this.p = getMousePosition(canvas,evt);
+		if(isPressed){
+		var p = getMousePosition(canvas,evt);
 		console.log(p.x);
 		console.log(p.y);
+		}
 	}.bind(this);
 	
 	this.Relachement = function(evt){
-		this.p = getMousePosition(canvas,evt);
-		this.xFin = this.p.x;
-		this.yFin = this.p.y;
+		isPressed = false;
+		var p = getMousePosition(canvas,evt);
+		this.xFin = p.x;
+		this.yFin = p.y;
 		console.log(p.x);
 		console.log(p.y);
 	}.bind(this);
 	
-	canvas.addEventListener('Drag', this.Pression);
-	canvas.addEventListener('move', this.Deplacement);
-	canvas.addEventListener('Drop', this.Relachement);
+	canvas.addEventListener('mousedown', this.Pression, false);
+	canvas.addEventListener('mousemove', this.Deplacement, false);
+	canvas.addEventListener('mouseup', this.Relachement, false);
 
 };
 
