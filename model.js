@@ -1,19 +1,38 @@
 class Form {
-	constructor(couleur, epaisseur){
+	constructor(InitX,InitY,FinalX,FinalY,couleur, epaisseur){
 		this.couleur = couleur;
 		this.epaisseur = epaisseur;
+		this.InitX = InitX;
+		this.InitY = InitY;
+		this.FinalX = FinalX;
+		this.FinalY = FinalY;
+	}
+	getCouleur(){
+		return this.couleur;
+	}
+	getEpaisseur(){
+		return this.epaisseur;
+	}
+	getFinalX(){
+		return this.FinalX;
+	}
+	getFinalY(){
+		return this.FinalY;
+	}
+	getInitX(){
+		return this.InitX;
+	}
+	getInitY(){
+		return this.InitY;
 	}
 }
 
 class Rectangle extends Form{
-	constructor(couleur, epaisseur,LeftX ,LeftY ,l,h) {
-		this.couleur = couleur;
-		this.epaisseur = epaisseur;
-		this.LeftX = LeftX;
-		this.LeftY = LeftY
-		this.l = l;
-		this.h = h;
+	
+	constructor(InitX,InitY,FinalX,FinalY, epaisseur, couleur) {
+		super(InitX,InitY,FinalX,FinalY,couleur,epaisseur);	
 	}
+	
 	
 }
 
@@ -27,25 +46,7 @@ class Drawing{
 }
 
 class Line extends Form{
-	constructor(couleur, epaisseur,InitX,InitY,FinalX,FinalY) {
-		this.couleur = couleur;
-		this.epaisseur = epaisseur;
-		this.InitX = InitX;
-		this.InitY = InitY;
-		this.FinalX = FinalX;
-		this.FinalY = FinalY;
-		
-	}
-	getFinalX(){
-		return this.FinalX;
-	}
-	getFinalY(){
-		return this.FinalY;
-	}
-	getInitX(){
-		return this.InitX;
-	}
-	getInitY(){
-		return this.InitX;
+	constructor(InitX,InitY,FinalX,FinalY, epaisseur, couleur) {
+		super(InitX,InitY,FinalX,FinalY,couleur,epaisseur);
 	}
 }
